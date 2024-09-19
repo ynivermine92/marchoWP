@@ -105,7 +105,7 @@ add_action( 'widgets_init', 'marcho_widgets_init' );
 
 function marcho_enqueue_scripts(){
 	//style
-	/* wp_enqueue_style('marcho-style', get_template_directory_uri().'/assets/css/style.css', array(), '1.0', 'all'); */
+	wp_enqueue_style('marcho-style', get_template_directory_uri().'/css/style.min.css', array(), '1.0', 'all'); 
 
 	//js
 /* 	wp_enqueue_script('marcho-main', get_template_directory_uri().'/assets/js/main.js', array('jquery'), '1.0', true); */
