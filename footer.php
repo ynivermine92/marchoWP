@@ -1,14 +1,4 @@
 <?php global $geniuscourses_options; ?>
-
-
-
-
-
-
-
-
-
-
 <footer class="footer">
     <div class="container">
         <div class="footer-top">
@@ -137,10 +127,11 @@
             </div>
             <div class="footer-botton__accept">
                 <span class="footer-botton__accept-span">We Accept</span>
-                <img class="footer-botton__accept-img" src="<?php echo get_template_directory_url() ?>images/icons/matercard.png" alt="">
-                <img class="footer-botton__accept-img" src="<?php echo get_template_directory_url() ?>images/icons/visa.png" alt="">
-                <img class="footer-botton__accept-img" src="<?php echo get_template_directory_url() ?>images/icons/paypal.png" alt="">
+                <img class="footer-botton__accept-img" src="<?php echo get_template_directory_uri(); ?>/images/icons/matercard.png" alt="Mastercard">
+                <img class="footer-botton__accept-img" src="<?php echo get_template_directory_uri(); ?>/images/icons/visa.png" alt="Visa">
+                <img class="footer-botton__accept-img" src="<?php echo get_template_directory_uri(); ?>/images/icons/paypal.png" alt="PayPal">
             </div>
+
         </footer>
     </div>
 </footer>

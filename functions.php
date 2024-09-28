@@ -8,7 +8,7 @@
  */
 
 
-add_action( 'tgmpa_register', 'marcho_register_required_plugins' );
+////////Installed admin plugin
 function marcho_register_required_plugins() {
 
 	$plugins = array(
@@ -51,8 +51,10 @@ function marcho_register_required_plugins() {
 
 	tgmpa( $plugins, $config );
 }
+add_action( 'tgmpa_register', 'marcho_register_required_plugins' );
 
 
+///////////////paginate 
 function marcho_paginate($query){
 	$big = 999999999; // need an unlikely integer
 
@@ -73,6 +75,8 @@ function marcho_paginate($query){
 	) );
 }
 
+
+//////////////Sidebar
 function marcho_widgets_init() {
 	register_sidebar(
 		array(
@@ -103,12 +107,17 @@ function marcho_widgets_init() {
 add_action( 'widgets_init', 'marcho_widgets_init' );
 
 
+
+
+////////////style,js
 function marcho_enqueue_scripts(){
 	//style
-	wp_enqueue_style('marcho-style', get_template_directory_uri().'/css/style.min.css', array(), '1.0', 'all'); 
 
+	wp_enqueue_style('marcho-style', get_template_directory_uri().'/css/style.min.css', array(), '1.0', 'all'); 
+	
 	//js
-/* 	wp_enqueue_script('marcho-main', get_template_directory_uri().'/assets/js/main.js', array('jquery'), '1.0', true); */
+	wp_enqueue_script('main-script', get_template_directory_uri().'/js/main.min.js', array(), '1.0', true);
+
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -118,6 +127,7 @@ add_action('wp_enqueue_scripts', 'marcho_enqueue_scripts');
 
 
 
+////////////// navigation conclusion
 function marcho_theme_init(){
 	//Регистрация локций меню
 	register_nav_menus(array(
@@ -166,16 +176,89 @@ add_action('after_setup_theme','marcho_theme_init',0);
 
 
 
+//////////////nav add li
+function gc_add_class_on_li($classes,$item, $args){
+	if(isset($args->add_li_class)){
+		$classes[] = $args->add_li_class;
+	}
+	return $classes;
+}
+add_filter('nav_menu_css_class','gc_add_class_on_li',1,3);
+
+//////////////nav add link
+function gc_add_class_on_link($atts, $item, $args) {
+	if (isset($args->add_link_class)) {
+		$atts['class'] = $args->add_link_class; 
+	}
+	return $atts;
+}
+add_filter('nav_menu_link_attributes', 'gc_add_class_on_link', 1, 3);
 
 
 
 
+function add_svg_to_upload_mimes($mimes) {
+    // Только для пользователей с правами администратора
+    if (current_user_can('administrator')) {
+        $mimes['svg'] = 'image/svg+xml';
+    }
+    return $mimes;
+}
+add_filter('upload_mimes', 'add_svg_to_upload_mimes');
+
+
+
+
+
+
+/////////////svg add
+add_filter( 'upload_mimes', 'svg_upload_allow' );
+
+function svg_upload_allow( $mimes ) {
+    $mimes['svg']  = 'image/svg+xml';
+    return $mimes;
+}
+
+add_filter( 'wp_check_filetype_and_ext', 'fix_svg_mime_type', 10, 5 );
+
+function fix_svg_mime_type( $data, $file, $filename, $mimes, $real_mime = '' ) {
+
+    // WP 5.1 +
+    if( version_compare( $GLOBALS['wp_version'], '5.1.0', '>=' ) )
+        $dosvg = in_array( $real_mime, [ 'image/svg', 'image/svg+xml' ] );
+    else
+        $dosvg = ( '.svg' === strtolower( substr($filename, -4) ) );
+
+    if( $dosvg ) {
+        if( current_user_can('manage_options') ) {
+            $data['ext']  = 'svg';
+            $data['type'] = 'image/svg+xml';
+        } else {
+            $data['ext']  = false;
+            $data['type'] = false;
+        }
+    }
+    return $data;
+}
+/////////////
+
+
+
+
+
+
+
+
+
+//===================================
+//user comments  width input
 function marcho_content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'marcho_content_width', 640 );
 }
 add_action( 'after_setup_theme', 'marcho_content_width', 0 );
 
 
+//user comments
 function marcho_custom_comments($comment, $args, $depth){
 
 	if ( 'div' === $args['style'] ) {
@@ -234,33 +317,9 @@ function marcho_custom_comments($comment, $args, $depth){
 }
 
 
-//nav add li
-function gc_add_class_on_li($classes,$item, $args){
-	if(isset($args->add_li_class)){
-		$classes[] = $args->add_li_class;
-	}
-	return $classes;
-}
-add_filter('nav_menu_css_class','gc_add_class_on_li',1,3);
-
-//nav add link
-function gc_add_class_on_link($atts, $item, $args) {
-	if (isset($args->add_link_class)) {
-		$atts['class'] = $args->add_link_class; 
-	}
-	return $atts;
-}
-add_filter('nav_menu_link_attributes', 'gc_add_class_on_link', 1, 3);
 
 
 
 
 
-function gc_posts_per_page($query){
-	if(!is_admin()){
-		if(is_post_type_archive('car')){
-			$query->set('posts_per_page', 3);
-		}
-	}
-}
-add_action('pre_get_posts','gc_posts_per_page');
+/* 58 пейдж  попробивать вручную */
