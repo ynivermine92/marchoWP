@@ -1,24 +1,17 @@
-<?php get_header(); ?>
 
-	
+<?php
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+/**
+ * Template Name: page
+ *
+ * @package marcho
+ */
 
-			get_template_part('partials/content', 'page');  
-
-			wp_link_pages();
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
+get_header(); ?>
 
 
 <?php
-//get_sidebar();
-get_footer();
+echo 'ID этой страницы: ' . get_the_ID();
+?>
+
+<?php get_footer(); ?>

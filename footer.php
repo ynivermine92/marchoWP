@@ -115,10 +115,10 @@
                     labore et dolore magna aliqua.
                     <br>Quis ipsum suspendisse ultrices gravida.
                 </p>
-                <form class="footer-top__form" action="#">
+               <!--  <form class="footer-top__form" action="#">
                     <input class="footer-top__form-input" type="text" placeholder="Your email address" required>
                     <button class="footer-top__form-btn">Subscribe</button>
-                </form>
+                </form> -->
             </div>
         </div>
         <footer class="footer-botton">
