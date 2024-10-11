@@ -38,16 +38,16 @@
                     <a class="user-nav__link modal__btn" href="#">
                         <img class="user-nav__link-img" src="<?php echo get_template_directory_uri(); ?>/images/icons/user.svg" alt="">
                     </a>
-                    <a class="user-nav__link" href="">
+                    <a class="user-nav__link navigation__search" href="#">
                         <img class="user-nav__link-img" src="<?php echo get_template_directory_uri(); ?>/images/icons/search.svg" alt="">
                     </a>
-                    <a class="user-nav__link" href="">
+                    <a class="user-nav__link user-nav__link-like " href="#">
                         <img class="user-nav__link-img" src="<?php echo get_template_directory_uri(); ?>/images/icons/heart_icon.svg" alt="">
-                        <span class="user-nav__num">3</span>
+                        <span class="user-nav__num">0</span>
                     </a>
-                    <a class="user-nav__link" href="">
+                    <a class="user-nav__link user-nav__link-basket" href="#">
                         <img class="user-nav__link-img" src="<?php echo get_template_directory_uri(); ?>/images/icons/cart_icon.svg" alt="">
-                        <span class="user-nav__num">7</span>
+                        <span class="user-nav__num user-nav__basket">0</span>
                     </a>
                 </div>
 
@@ -60,12 +60,12 @@
 
 
     <!-- Modal -->
-    <div class="modal__wrapper">
+    <div class="modal__wrapper authorizationModal__wrapper">
         <div class="modal">
-            <div class="modal__close"> <img src="https://www.svgrepo.com/show/499592/close-x.svg" alt="cancel" width="10px" height="10px"></div>
+            <div class="modal__close"> <img src="https://www.svgrepo.com/show/499592/close-x.svg" alt="cancel" width="40px" height="30px"></div>
             <div class="modal__title"><span>Авторизация</span> </div>
             <div class="modal__body">
-                <div class="modal__verification">перейдите к регистрации </div>
+                <div class="model__block modal__verification">перейдите к регистрации </div>
                 <form class="modal__form" action="">
                     <input placeholder="ведите email@" class="modal__input modal__mail" type="email">
                     <input placeholder="ведите пароль" class="modal__input modal__password" type="text">
@@ -78,17 +78,36 @@
 
 
     <!-- Modal -->
-    <div class="modalRegist__wrapper">
-        <div class="modalRegist">
-            <div class="modalRegist__close modal__close"> <img src="https://www.svgrepo.com/show/499592/close-x.svg" alt="cancel" width="40px" height="30px"></div>
-            <div class="modalRegist__title"><span>регистрация</span> </div>
-            <div class="modalRegist__body">
-                <div class="modalRegist__regist">перейти к входу</div>
-                <form class="modalRegist__form" action="">
-                    <input placeholder="email@" class="modalRegist__input modal__email" type="email">
-                    <input placeholder="телефон" class="modalRegist__input modalRegist__tell" type="tel" value="+38" placeholder="+380-00-000-00-00">
-                    <button class="modalRegist__button">регистрация</button>
+    <div class="modal__wrapper modalRegist__wrapper">
+        <div class="modal">
+            <div class="modal__close modalRegist__close"> <img src="https://www.svgrepo.com/show/499592/close-x.svg" alt="cancel" width="40px" height="30px"></div>
+            <div class="modal__title"><span>регистрация</span> </div>
+            <div class="modal__body">
+                <div class=" model__block modalRegist__regist">перейти к входу</div>
+                <form class="modal__form" action="">
+                    <input placeholder="ведите email@" class="modal__input modal__mail" type="email">
+                    <input placeholder="телефон" class="modal__input modal__tell" type="tel" value="+38" placeholder="+380-00-000-00-00">
+                    <button class="modal__button modalRegist__button">регистрация</button>
                 </form>
             </div>
         </div>
     </div>
+    
+
+
+    <!-- Modal -->
+<div class="modalThank__wrapper">
+    <div class="modalThank">
+    <div class="modal__body">
+        <div class="modalThank__close"> <img src="https://www.svgrepo.com/show/499592/close-x.svg" alt="cancel" width="40px" height="30px"></div>
+        <div class="modalThank__body">Congratulations Thanks for Registering</div>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+
+<?php get_search_form(); ?>

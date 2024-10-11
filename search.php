@@ -1,40 +1,22 @@
-<?php
-/**
- * The template for displaying search results pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
- *
- * @package Geniuscourses
- */
+<?php get_header(); ?>
 
-get_header();
-?>
+<div class="search-results">
+    <h1>Результаты поиска для: "<?php echo get_search_query(); ?>"</h1>
 
-<?php
+    <?php if (have_posts()) : ?>
+        <ul>
+            <?php while (have_posts()) : the_post(); ?>
+                <li>
+                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                    <p><?php the_excerpt(); ?></p>
+                </li>
+            <?php endwhile; ?>
+        </ul>
+    <?php else : ?>
+        <p>Ничего не найдено.</p>
+        <p><a href="<?php echo esc_url(home_url('/')); ?>">Вернуться назад</a></p>
+    <?php endif; ?>
 
-get_header();
-?>
-
-
-<div class="container-fluid py-5">
-	<div class="container pt-5 pb-3">
-
-		<?php if(have_posts()) : while(have_posts()) : the_post(); ?>
-		
-			<?php get_template_part('partials/content'); ?> 
-
-		<?php endwhile; ?>
-			<div class="pagination">
-				<?php echo paginate_links(); ?>
-			</div>
-		<?php else : ?>
-
-			<?php get_template_part('partials/content', 'none'); ?> 
-
-		<?php endif; ?>
-
-	</div>
 </div>
 
-<?php
-get_footer();
+<?php get_footer(); ?>
