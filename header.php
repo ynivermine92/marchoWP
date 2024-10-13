@@ -41,7 +41,7 @@
                     <a class="user-nav__link navigation__search" href="#">
                         <img class="user-nav__link-img" src="<?php echo get_template_directory_uri(); ?>/images/icons/search.svg" alt="">
                     </a>
-                    <a class="user-nav__link user-nav__link-like " href="#">
+                    <a class="user-nav__link user-nav__link-like modal__like-btn" href="#">
                         <img class="user-nav__link-img" src="<?php echo get_template_directory_uri(); ?>/images/icons/heart_icon.svg" alt="">
                         <span class="user-nav__num">0</span>
                     </a>
@@ -77,7 +77,7 @@
 
 
 
-    <!-- Modal -->
+    <!-- Modal  modalRegist-->
     <div class="modal__wrapper modalRegist__wrapper">
         <div class="modal">
             <div class="modal__close modalRegist__close"> <img src="https://www.svgrepo.com/show/499592/close-x.svg" alt="cancel" width="40px" height="30px"></div>
@@ -85,29 +85,39 @@
             <div class="modal__body">
                 <div class=" model__block modalRegist__regist">перейти к входу</div>
                 <form class="modal__form" action="">
-                    <input placeholder="ведите email@" class="modal__input modal__mail" type="email">
-                    <input placeholder="телефон" class="modal__input modal__tell" type="tel" value="+38" placeholder="+380-00-000-00-00">
+                    <input placeholder="ведите email@" class="modal__input modal__register-mail" type="email" value="ttt@gmail.com">
+                    <input placeholder="телефон" class="modal__input modal__tell" type="tel" value="+380933525222" placeholder="+380-00-000-00-00">
                     <button class="modal__button modalRegist__button">регистрация</button>
                 </form>
             </div>
         </div>
     </div>
-    
 
 
-    <!-- Modal -->
-<div class="modalThank__wrapper">
-    <div class="modalThank">
-    <div class="modal__body">
-        <div class="modalThank__close"> <img src="https://www.svgrepo.com/show/499592/close-x.svg" alt="cancel" width="40px" height="30px"></div>
-        <div class="modalThank__body">Congratulations Thanks for Registering</div>
+
+    <!-- Modal modalThank-->
+    <div class="modal__wrapper modalThank__wrapper">
+        <div class="modal modalThank__regist">
+            <div class="modal__close modalThank__close"> <img src="https://www.svgrepo.com/show/499592/close-x.svg" alt="cancel" width="40px" height="30px"></div>
+            <div class="modal__body">
+                <div class="modal__body  modalThank__text">Congratulations Thanks for Registering</div>
+            </div>
+        </div>
     </div>
+
+
+        <!-- Modal like-->
+        <div class="modal__wrapper modalLike__wrapper">
+        <div class="modal modalLike">
+            <div class="modal__close modalLike__close"> <img src="https://www.svgrepo.com/show/499592/close-x.svg" alt="cancel" width="40px" height="30px"></div>
+            <div class="modal__title modalLike__title"> понравившися </div>
+            <div class="modal__body">
+                <div class="modal__body  modalThank__text">магазин</div>
+            </div>
+        </div>
     </div>
-</div>
 
 
 
 
-
-
-<?php get_search_form(); ?>
+    <?php get_search_form(); ?>

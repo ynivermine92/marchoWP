@@ -5112,6 +5112,11 @@ footer {
   border: 1px solid black;
   color: #000;
 }
+body.locked {
+  overflow: hidden;
+}
 
-
+.modalThank__text{
+  text-align: center;
+}
 /* model */
