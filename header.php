@@ -85,8 +85,8 @@
             <div class="modal__body">
                 <div class=" model__block modalRegist__regist">перейти к входу</div>
                 <form class="modal__form" action="">
-                    <input placeholder="ведите email@" class="modal__input modal__register-mail" type="email" value="ttt@gmail.com">
-                    <input placeholder="телефон" class="modal__input modal__tell" type="tel" value="+380933525222" placeholder="+380-00-000-00-00">
+                    <input placeholder="ведите email@" class="modal__input modal__register-mail" type="email">
+                    <input placeholder="телефон" class="modal__input modal__tell" type="tel" value="+38" placeholder="+380-00-000-00-00">
                     <button class="modal__button modalRegist__button">регистрация</button>
                 </form>
             </div>
@@ -110,9 +110,14 @@
         <div class="modal__wrapper modalLike__wrapper">
         <div class="modal modalLike">
             <div class="modal__close modalLike__close"> <img src="https://www.svgrepo.com/show/499592/close-x.svg" alt="cancel" width="40px" height="30px"></div>
-            <div class="modal__title modalLike__title"> понравившися </div>
+            <div class="modal__title modalLike__title"> move basket </div>
             <div class="modal__body">
-                <div class="modal__body  modalThank__text">магазин</div>
+                <div class="modal__body">
+                    <ul class="modalLike__items">
+                       
+                    </ul>
+
+                </div>
             </div>
         </div>
     </div>

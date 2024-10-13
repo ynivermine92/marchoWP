@@ -5112,11 +5112,54 @@ footer {
   border: 1px solid black;
   color: #000;
 }
+
 body.locked {
   overflow: hidden;
 }
 
-.modalThank__text{
+.modalThank__text {
   text-align: center;
 }
+
 /* model */
+
+
+
+/* handleLikes */
+.modalLike {
+  max-width: 800px;
+  width: 100%;
+  height: auto;
+}
+.modalLike__item{
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #000;
+  align-items: center;
+  max-width: 500px;
+  padding: 20px;
+  transform: scale(1);
+  transition: all 0.5s;
+  position: relative;
+}
+.modalLike__item:hover{
+  transform: scale(1.02);
+  transition: all 0.5s;
+}
+.modalLike__image {
+  height: 100px;
+}
+.modalLike__clouse{
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.modalLike__name{
+  padding: 10px 0;
+}
+.modalLike__button{
+  padding: 12px 12px;
+}
+
+/* handleLikes */
